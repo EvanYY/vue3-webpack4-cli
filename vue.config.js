@@ -33,27 +33,28 @@ module.exports = {
 			]
 		}
 	},
-	//  configureWebpack: {
-	//  	plugins: [
-	//  		new MyAwesomeWebpackPlugin()
-	//  	]
-	//  },
-	//  configureWebpack: config => {
-	//  	if (process.env.NODE_ENV === "production") {
-	//  		// 为生产环境修改配置...
-	//  	} else {
-	//  		// 为开发环境修改配置...
-	//  	}
-	//  },
+	// devServer: {
+	// 	port: 8085,
+	// },
 	css: {
 		modules: false,
 		extract: process.env.NODE_ENV === "production",
 		sourceMap: false,
 		loaderOptions: {}
 	},
-	devServer: {
-		port: 8085,
-	},
+
 	parallel: require("os").cpus().length > 1,
 	// pwa: {},
 }
+//  configureWebpack: {
+//  	plugins: [
+//  		new MyAwesomeWebpackPlugin()
+//  	]
+//  },
+//  configureWebpack: config => {
+//  	if (process.env.NODE_ENV === "production") {
+//  		// 为生产环境修改配置...
+//  	} else {
+//  		// 为开发环境修改配置...
+//  	}
+//  },
