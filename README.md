@@ -27,3 +27,8 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+<script>
+$ vue ui
+$ lint
+$ watch vue-config.js
