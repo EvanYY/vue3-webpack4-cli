@@ -7,6 +7,7 @@ module.exports = {
 	indexPath: "index.html",
 	lintOnSave: process.env.NODE_ENV !== "production",
 	devServer: {
+		port: 8085,
 		overlay: {
 			warnings: false,
 			errors: true
@@ -33,9 +34,6 @@ module.exports = {
 			]
 		}
 	},
-	// devServer: {
-	// 	port: 8085,
-	// },
 	css: {
 		modules: false,
 		extract: process.env.NODE_ENV === "production",
