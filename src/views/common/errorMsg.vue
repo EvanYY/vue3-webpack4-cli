@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>报错信息：</h1>
+    <h1>报错页面，见此页面请联系后台人员</h1>
     <h2>错误代码：{{errorMsg.code}}</h2>
     <b>{{errorMsg.msg}}</b>
   </div>
@@ -30,6 +30,3 @@ export default {
   beforeDestroy() {}
 };
 </script>
-
-<style scoped lang='scss'>
-</style>

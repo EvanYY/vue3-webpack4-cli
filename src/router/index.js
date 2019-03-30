@@ -67,29 +67,8 @@ const router = new Router({
   routes: globalRoutes.concat(mainRoutes), // yy 路由路径数组全部
 })
 
-function doubleAfter2seconds(num, arr) {
-  return new Promise((resolve, reject) => {
-    http({
-      url: 'http://192.168.10.106:9555/collector-admin/sys/login',
-      method: 'post',
-      data: {
-        password: "lqc",
-        username: "lqc"
-      }
-    }).then(({
-      data
-    }) => {
-      let b = testArr
-      resolve(b)
-    })
-  })
-}
 router.beforeEach(async (to, from, next) => {
-  // let flag = router.options.isAddDynamicMenuRoutes; // yy 判断是否需要动态路由
-  // if (flag || fnCurrentRouteType(to)) {
-  // let userInfoRoute = store.state.user.userMeanuRoute;
   if (mainRoutes.length < 1) {
-    // let menuList = await doubleAfter2seconds(20);
     let {data} = await http({
       url: 'http://192.168.10.106:9555/collector-admin/sys/login',
       method: 'post',
@@ -99,17 +78,13 @@ router.beforeEach(async (to, from, next) => {
       }
     })
     let menuList = (function(a,b,con){
-      let method =function() {
-
-      };
+      let method =function() {};
       return b;
     })(data, testArr.testArr);
     fnAddDynamicMenuRoutes(menuList)
-    console.log(2)
   } else {
     console.log('next')
   }
-  console.log(to)
   next()
 })
 router.afterEach(() => {
@@ -122,23 +97,23 @@ router.afterEach(() => {
  * 判断当前路由类型, true: 全局路由, false: 主入口路由
  * @param {*} route 当前路由
  */
-function fnCurrentRouteType(route) {
-  var temp = []
-  for (var i = 0; i < globalRoutes.length; i++) {
-    if (route.path === globalRoutes[i].path) {
-      let setMenuList = JSON.parse(sessionStorage.getItem("setMenuList"));
-      let reportMenuList = JSON.parse(sessionStorage.getItem("reportMenuList"));
-      if (setMenuList && reportMenuList) {
-        return true
-      } else {
-        return false
-      }
-    } else if (globalRoutes[i].children && globalRoutes[i].children.length >= 1) {
-      temp = temp.concat(globalRoutes[i].children);
-    }
-  }
-  return temp.length >= 1 ? fnCurrentRouteType(route, temp) : false
-}
+// function fnCurrentRouteType(route) {
+//   var temp = []
+//   for (var i = 0; i < globalRoutes.length; i++) {
+//     if (route.path === globalRoutes[i].path) {
+//       let setMenuList = JSON.parse(sessionStorage.getItem("setMenuList"));
+//       let reportMenuList = JSON.parse(sessionStorage.getItem("reportMenuList"));
+//       if (setMenuList && reportMenuList) {
+//         return true
+//       } else {
+//         return false
+//       }
+//     } else if (globalRoutes[i].children && globalRoutes[i].children.length >= 1) {
+//       temp = temp.concat(globalRoutes[i].children);
+//     }
+//   }
+//   return temp.length >= 1 ? fnCurrentRouteType(route, temp) : false
+// }
 
 /**
  * 添加动态(菜单)路由
@@ -154,7 +129,6 @@ function fnAddDynamicMenuRoutes(menuList = [], routes = []) {
       name: `o-${menuList[i].url.replace("/", "-")}`,
       meta: {}
     }
-    console.log(JSON.stringify(route))
     try {
       route["component"] = _import(`moudels/${menuList[i].url}`);
     } catch (e) {
