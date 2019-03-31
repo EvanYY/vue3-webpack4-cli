@@ -10,7 +10,13 @@ export default {
 	name: 'websocket-modules',
 	components: {},
 	mixins: [],
-	props: {},
+	props: {
+		url: {
+			type:String,
+			required: true,
+			default: ""
+		}
+	},
 	watch: {},
 	computed: {},
 	data () {
