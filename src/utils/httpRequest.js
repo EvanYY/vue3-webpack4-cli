@@ -1,7 +1,7 @@
-// import Vue from 'vue'
+import Vue from 'vue'
 import axios from 'axios'
 // import router from '@/router'
-// import qs from 'qs'
+import qs from 'qs'
 // import store from '../store'
 const http = axios.create({
   timeout: 1000 * 600,
@@ -79,8 +79,8 @@ http.adornUrl = (actionName) => {
 
 http.adornUrlWs = (actionName) => {
   // 非生产环境 && 开启代理, 接口前缀统一使用[/proxyApi/]前缀做代理拦截!
-  // let token = Vue.cookie.get('token');
-  // return window.API_ROOT_WS + actionName + token;
+  let token = Vue.cookie.get('token');
+  return window.API_ROOT_WS + actionName + token;
 }
 
 /**

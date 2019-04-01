@@ -8,10 +8,10 @@
 import Vue from "vue"
 import Router from "vue-router"
 import http from "@/utils/httpRequest"
-import axios from "axios"
-import {
-  isURL
-} from "@/utils/validate"
+// import axios from "axios"
+// import {
+//   isURL
+// } from "@/utils/validate"
 import testArr from "./mode"
 import store from "@/store"
 // import s from "storejs"
@@ -69,7 +69,9 @@ const router = new Router({
 
 router.beforeEach(async (to, from, next) => {
   if (mainRoutes.length < 1) {
-    let {data} = await http({
+    let {
+      data
+    } = await http({
       url: 'http://192.168.10.106:9555/collector-admin/sys/login',
       method: 'post',
       data: {
@@ -77,9 +79,11 @@ router.beforeEach(async (to, from, next) => {
         username: "lqc"
       }
     })
-    let menuList = (function(a,b,con){
-      let method =function() {};
-      return b;
+    let menuList = (function (a, b) {
+      let method = function (deal) {
+        return deal
+      };
+      return method(b);
     })(data, testArr.testArr);
     fnAddDynamicMenuRoutes(menuList)
   } else {

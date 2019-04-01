@@ -92,5 +92,6 @@ const test2 = [{
 	}]
 }]
 export default {
-	testArr
+	testArr,
+	test2
 }
