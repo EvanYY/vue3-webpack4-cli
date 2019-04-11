@@ -19,13 +19,6 @@ export default {
   data() {
     return {
       name: "nav"
-      // heart: {
-      //   time: 0,
-      //   start: function(fn) {
-      //     console.log(this.time);
-      //     fn();
-      //   }
-      // }
     };
   },
   methods: {
@@ -52,8 +45,8 @@ export default {
     // align-items:a
   }
   .ant-layout-content {
-    background: rgba(16, 142, 233, 1);
-    color: #fff;
+    background: #fff;
+    color: #000;
   }
   .ant-layout-header,
   .ant-layout-footer {
