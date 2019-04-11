@@ -7,6 +7,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
   <script src='./commonJS/index-${process.env.NODE_ENV}.js'></script>
+  <script src="./commonJS/viewport-units-buggyfill.js"></script>
+  <script>
+    window.onload = function () {
+      window.viewportUnitsBuggyfill.init({
+        hacks: window.viewportUnitsBuggyfillHacks
+      });
+      // var winDPI = window.devicePixelRatio;
+      // var uAgent = window.navigator.userAgent;
+      // var screenHeight = window.screen.height;
+      // var screenWidth = window.screen.width;
+      // var winWidth = window.innerWidth;
+      // var winHeight = window.innerHeight;
+      // alert(
+      //   "Windows DPI:" + winDPI +
+      //   ";\ruAgent:" + uAgent +
+      //   ";\rScreen Width:" + screenWidth +
+      //   ";\rScreen Height:" + screenHeight +
+      //   ";\rWindow Width:" + winWidth +
+      //   ";\rWindow Height:" + winHeight
+      // )
+    }
+  </script>
   <title>@运维基础搭建</title>
 </head>
 

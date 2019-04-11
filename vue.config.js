@@ -1,13 +1,14 @@
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 module.exports = {
-	publicPath: process.env.NODE_ENV === "production" ?
-		"/production-sub-path/" : "/",
-	outputDir: "dist",
-	assetsDir: "/static",
-	indexPath: "index.html",
+	// publicPath: process.env.NODE_ENV === "production" ?
+	// 	"/production-sub-path/" : "/",
+	// outputDir: "dist",
+	// assetsDir: "/static",
+	// indexPath: "index.html",
 	lintOnSave: process.env.NODE_ENV !== "production",
 	devServer: {
 		port: 8085,
+		host: "0.0.0.0",
 		overlay: {
 			warnings: false,
 			errors: true
@@ -38,9 +39,8 @@ module.exports = {
 		modules: false,
 		extract: process.env.NODE_ENV === "production",
 		sourceMap: false,
-		loaderOptions: {}
+		// loaderOptions: {}
 	},
-
 	parallel: require("os").cpus().length > 1,
 	// pwa: {},
 }

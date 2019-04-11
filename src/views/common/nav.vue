@@ -1,6 +1,10 @@
 <template>
-  <div>
-    {{name}}
+  <div id="components-layout-demo-basic">
+    <a-layout>
+      <a-layout-header>报障</a-layout-header>
+      <a-layout-content>Content</a-layout-content>
+      <a-layout-footer>Footer</a-layout-footer>
+    </a-layout>
   </div>
 </template>
 
@@ -14,7 +18,7 @@ export default {
   computed: {},
   data() {
     return {
-      name: "nav",
+      name: "nav"
       // heart: {
       //   time: 0,
       //   start: function(fn) {
@@ -26,7 +30,7 @@ export default {
   },
   methods: {
     nav() {
-      console.log(this.name)
+      console.log(this.name);
     }
   },
   created() {},
@@ -38,4 +42,28 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+#components-layout-demo-basic {
+  text-align: center;
+  // height: 100vh;
+  .ant-layout {
+    height: 100vh;
+    // background-color: red;
+    // display: flex;
+    // align-items:a
+  }
+  .ant-layout-content {
+    background: rgba(16, 142, 233, 1);
+    color: #fff;
+  }
+  .ant-layout-header,
+  .ant-layout-footer {
+    background: #7dbcea;
+    color: #fff;
+    // font-size: 20px;
+    font-size: 30px;
+  }
+  .ant-layout-header {
+
+  }
+}
 </style>

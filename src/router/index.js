@@ -72,7 +72,7 @@ router.beforeEach(async (to, from, next) => {
     let {
       data
     } = await http({
-      url: 'http://192.168.10.106:9555/collector-admin/sys/login',
+      url: 'http://192.168.8.222:9555/collector-admin/sys/login',
       method: 'post',
       data: {
         password: "lqc",
@@ -130,7 +130,7 @@ function fnAddDynamicMenuRoutes(menuList = [], routes = []) {
     var route = {
       path: `/${menuList[i].url.replace("/", "-")}`,
       component: null,
-      name: `o-${menuList[i].url.replace("/", "-")}`,
+      // name: `o-${menuList[i].url.replace("/", "-")}`,
       meta: {}
     }
     try {
