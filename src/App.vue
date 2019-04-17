@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <!-- <ul>
+    <ul>
       <li
         v-for="(v,i) in list"
         :key="i"
         @click="go(v.path)"
         style="margin:20px 30px;cursor:default;"
       >{{v.name}}</li>
-    </ul> -->
+    </ul>
     <router-view></router-view>
   </div>
 </template>
@@ -17,47 +17,47 @@ export default {
   name: "app",
   components: {},
   methods: {
-    // go(path) {
-    //   if (path.indexOf("error")) {
-    //     this.$router.replace({
-    //       path,
-    //       query: {
-    //         code: 300,
-    //         msg:`测试错误`
-    //       }
-    //     });
-    //     return;
-    //   }
-    //   this.$router.replace({
-    //     path
-    //   });
-    // }
+    go(path) {
+      if (path.indexOf("error")) {
+        this.$router.replace({
+          path,
+          query: {
+            code: 300,
+            msg:`测试错误`
+          }
+        });
+        return;
+      }
+      this.$router.replace({
+        path
+      });
+    }
   },
   data() {
     return {
-      // list: [
-      //   {
-      //     name: "login",
-      //     path: "/common-login"
-      //     // path: "/login"
-      //   },
-      //   {
-      //     name: "404",
-      //     path: "/404"
-      //   },
-      //   {
-      //     name: "home",
-      //     path: "/common-home"
-      //   },
-      //   {
-      //     name: "main",
-      //     path: "/common-main"
-      //   },
-      //   {
-      //     name: "asdasd",
-      //     path: "/error"
-      //   }
-      // ]
+      list: [
+        {
+          name: "login",
+          path: "/common-login"
+          // path: "/login"
+        },
+        {
+          name: "404",
+          path: "/404"
+        },
+        {
+          name: "home",
+          path: "/common-home"
+        },
+        {
+          name: "main",
+          path: "/common-main"
+        },
+        {
+          name: "asdasd",
+          path: "/error"
+        }
+      ]
     };
   }
 };
