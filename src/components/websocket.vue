@@ -76,8 +76,7 @@ export default {
       console.log("接收到消息");
       this.heartCheck.start(this.websock); // 心跳
       if (this.isJsonString(e.data)) {
-        /** @param
-				 *  业务逻辑代码
+        /** @业务逻辑代码
 				 */
         let res = JSON.parse(e.data);
       }
