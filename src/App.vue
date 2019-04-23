@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <ul>
+    <!-- <ul>
       <li
         v-for="(v,i) in list"
         :key="i"
         @click="go(v.path)"
         style="margin:20px 30px;cursor:default;"
       >{{v.name}}</li>
-    </ul>
+    </ul> -->
     <router-view></router-view>
   </div>
 </template>

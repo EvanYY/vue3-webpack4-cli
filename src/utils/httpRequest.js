@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 // import router from '@/router'
 import qs from 'qs'
-import store from '../store'
+import store from './../store'
 const http = axios.create({
   timeout: 1000 * 600,
   withCredentials: true,
@@ -40,14 +40,15 @@ http.interceptors.request.use(
         url: config.url,
         fun: c,
       })
-      store.commit('common/updateAllAjax', {
-        url: config.url,
-        fun: c,
-      })
+      // store.commit('common/updateAllAjax', {
+      //   url: config.url,
+      //   fun: c,
+      // })
     })
-    config.headers[`token`] = store.userInfo.token
-      ? store.userInfo.token
-      : GetQueryString('token') // 请求头带上token
+    // config.headers[`token`] = store.userInfo.token
+    //   ? store.userInfo.token
+    //   : GetQueryString('token') // 请求头带上token
+    config.headers[`token`] = 'd06ff1f0a91450870175a8c3c5a8ed5a'
     return config
   },
   error => {

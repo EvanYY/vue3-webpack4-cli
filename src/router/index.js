@@ -68,7 +68,7 @@ router.beforeEach(async (to, from, next) => {
         username: 'lqc',
       },
     })
-    store.commit('user/userInfoUpdate', data.data) // 储存用户信息
+    // store.commit('user/userInfoUpdate', data.data) // 储存用户信息
 
   } else {
     console.log('next')
